@@ -1,0 +1,723 @@
+
+/*  ============================
+         Custom Property
+================================*/
+:root {
+    
+    --first-color: #D90062;
+    --first-alpha-color: rgba(217, 0, 98, 75%);
+    --second-color: #14192D;
+    --second-alpha-color: rgba(20, 25, 45,  75%);
+    --third-color: #501464;
+    --third-alpha-color: rgba(80, 20, 100,  75%);
+    /* escalas de grises */
+    --white-color: #FFFFFF;
+    --gray-light-color: #F3F3F3;
+    --gray-color: #CCCCCC;
+    --gray-dark-colo: #666666;
+    --black-color: #000000;
+    --link-color: #509EE3;
+    --title-color: #494848;
+    --text-color: #222222;
+    --white-alpha-color: rgba(255, 255, 255, 30%);
+    --black-alpha-color: rgba(0, 0, 0, 30%);
+    /* tipografia */
+    --font: 'Raleway', sans-serif;
+    --max-width: 1200px;
+    --herder-heigth: 6.4rem
+
+
+}
+/*  ============================
+           Reset
+================================*/
+
+html {
+    box-sizing: border-box;
+    font-family: var(--font);
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body{
+    margin:  0;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+a{
+    font-size: 1.4rem;
+    color: var(--link-color);
+    transition: all 0.5s ease-in-out;
+}
+
+a:hover{
+    opacity: 0.75;
+}
+
+
+
+h1{
+    margin: 0;
+    font-size: 3.2rem;
+}
+
+h2{
+    margin: 0;
+    font-size: 2.6rem;
+}
+
+h3{
+    margin: 0;
+    font-size: 2rem;
+}
+
+h4{
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+h5{
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+h6{
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+small{
+    font-size: 1.4rem;
+}
+
+/*  ============================
+         Components
+================================*/
+/* ********  Contact Form    ******* */
+.contact-form{
+    margin: 3rem auto;
+    padding: 1.6rem;
+    max-width: 700px;
+}
+
+.contact-form > *{
+   padding: .8rem;
+   margin: 1.6rem auto;
+   display: block;
+   width: 100%;
+}
+.contact-form input,
+.contact-form textarea{
+    font-family: var(--font);
+    font-size: 1.4rem;
+}
+.contact-form input{
+    border: none;
+    border-bottom: thin solid var(--gray-dark-colo) ;
+    padding-left:0 ;
+}
+
+.contact-form textarea{
+    border: thin solid var(--gray-dark-colo) ;
+    resize: none;
+}
+
+.contact-form input[type="submit"]{
+   margin-top: 0;
+   cursor: pointer;
+   transition: all .5s ease-out;
+}
+
+.contact-form input[type='submit']:hover{
+   opacity: 75%;
+}
+
+.contact-form *::placeholder{
+    color: var(--gray-dark-colo);
+}
+
+.contact-form-response{
+    padding: 1.6rem;
+    width: 400px;
+    text-align: center;
+    background-color: var(--white-color);
+}
+
+.contact-form-response > svg{
+    margin-top: 3rem;
+    width: 4rem;
+    height: 4rem;
+    fill: var(--first-color);
+}
+
+.modal#gracias:target{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media screen and (min-width :1024px) {
+    .contact-form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.6rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+        font-size: 1.6rem;
+    }
+
+    .contact-form textarea,
+    .contact-form-loader{
+    grid-column: span 2;
+    }
+
+    .contact-form input[type="submit"]{
+        margin-left: 0;
+     }
+}
+
+/* **********   Hero/Image    ************ */
+.hero-image{
+    background-image: var(--imagen);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: var(--attachment);
+   
+}
+
+.hero-image-opacity{
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    background-color: var(--black-alpha-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-title{
+    font-size: 12vw;
+    color: var(--hero-text-color);
+}
+
+
+
+/* **********   Menu    ************ */
+
+.menu-btn{
+    background-color: var(--second-color);
+    outline: thin solid var(--first-color);
+    border: 0;
+    cursor: pointer;
+}
+
+.menu-btn svg{
+    fill: var(--first-color);
+}
+.menu{
+    position: fixed;
+    left: 0;
+    bottom: var(--herder-heigth);
+    width: 100%;
+    background-color: var(--second-color);
+
+    opacity: 0;
+    transition: opacity .5s ease;
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.menu a {
+    padding: 1.6rem;
+    font-size: 2rem ;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: var(--first-color);
+
+    
+}
+
+.menu a:hover {
+    background-color: var(--first-color);
+    color: var(--white-color);
+}
+
+.menu.is-active{
+    opacity: 1;
+    pointer-events: visible;
+}
+
+@media screen and (min-width : 1024px) {
+   .menu-btn{
+       display: none;
+   }
+
+   .menu{
+       position: static;
+       opacity: 1;
+       pointer-events: initial;
+       width: auto;
+       
+       flex-direction: row;
+   }
+
+   .menu a {
+    padding: 0 1.6rem  0 0 ;  
+    
+    }
+
+    .menu a:last-of-type {
+        padding-right: 0 ;  
+        }
+    
+
+    .menu a:hover {
+       background-color: transparent;
+    }
+}
+/* **********   Ventana Modals    ************ */
+
+.modal{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--black-alpha-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content{
+    position: relative;
+}
+
+.modal-close{
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+}
+
+.modal-close > svg {
+    width: 3.2rem;
+    height: 3.2rem;
+    fill: var(--first-color);
+}
+
+.modal#trabajo-1:target,.modal#trabajo-2:target,.modal#trabajo-3:target{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/********** Progress ***************/
+
+progress{
+    width: 100%;
+    height: 2rem;
+    background-color: var(--gray-color);
+}
+
+progress::-webkit-progress-bar{
+    background-color: var(--gray-color);
+}
+
+progress::-webkit-progress-value{
+    background-color: var(--gray-dark-colo);
+}
+
+progress::-moz-progress-bar{
+    background-color: var(--gray-color);
+}
+
+.progress{
+    margin: 1.6rem auto;
+}
+
+.progress > p{
+   
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+/*  ============================
+            Utilitis
+================================*/
+.bg-gray-light{
+    background-color: var(--gray-light-color);
+}
+.box-shadow-1{
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
+} 
+
+.btn{
+  border-radius: 0.8rem ;
+  padding: 1.2rem;
+  display: inline-block;
+  width: 160px;
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: center;  
+  text-decoration: none;
+  color: var(--white-color);
+  background-color: var(--first-color);
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    max-width:var(--max-width);
+}
+
+.gray-scale{
+    filter: grayscale(0.6);
+}
+
+.none{
+    display: none;
+}
+
+.section{
+    padding: 3rem 1.4rem;
+}
+.section-title{
+    border-top: thin solid var(--first-color);
+    border-bottom: thin solid var(--first-color);
+    width: 250px;
+    padding: 1rem 1.6rem;
+    text-align: center;
+    margin: 3rem auto;
+}
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+
+@media screen and (min-width :1024px) {
+
+    .full-lg-screen{
+        width: 100%;
+        min-height: 100vh;
+    }
+    .text-lg-left{
+        text-align: left;
+    }
+    .text-lg-center{
+        text-align: center;
+    }
+    .text-lg-rigth{
+        text-align: right;
+    }
+
+
+    
+}
+
+/*  ============================
+            Siti Styles
+================================*/
+.about > article{
+    margin-bottom: 3rem;
+}
+
+.about > article:last-of-type{
+    margin-bottom: 0;
+}
+.contact{
+    margin-bottom: 2rem ;
+}
+.contact-card{
+    margin: 1.6rem auto;
+    padding: 1.6rem;
+    height: 144px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-card > svg {
+    width: 3.5rem;
+    height: 3.5rem;
+    fill: var(--first-color);
+}
+
+.contact-card > small {
+    margin-top: -1.6rem;
+}
+
+.footer{
+    background-color: var(--third-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 2.2rem;
+    margin-bottom: 6.2rem;
+    font-size: 1.6rem;
+}
+
+.header{
+ position: fixed;
+ left: 0;
+ bottom: 0;
+ z-index: 999;
+ padding: 1.6rem;
+ width: 100%;
+ height: var(--herder-heigth);
+ background-color: var(--second-color);
+}
+
+.header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a{
+    color: var(--first-color);
+    font-weight: bold;
+    font-size: 3.2rem;
+    text-decoration: none;
+}
+
+.porfolio-card{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.porfolio-card img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.porfolio-card-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 1.6rem;
+    width: 100%;
+    height: 100%;
+    background-color: var(--first-alpha-color);
+    color: var(--white-color);
+    transition: all .5s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.porfolio-card-info > div{
+    padding: 1.6rem;
+    border: thin solid var(--white-color);
+    height: 100%;
+    width: 100%;
+}
+
+.porfolio-card:hover .porfolio-card-info{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.porfolio-modal{
+    background-color: var(--white-color);
+    padding: 2rem;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.porfolio-modal img{
+    max-width: 300px;
+    max-height: 300px;
+    margin-right:auto ;
+    margin-left: auto;
+}
+
+.porfolio-info h3 {
+    border-bottom: medium solid var(--first-color);
+   padding: 1rem;
+    margin: 1rem auto;
+    color: var(--title-color);
+}
+
+.porfolio-detalles{
+    display: grid;
+    grid-template-columns:40% 60%;
+    grid-auto-rows: 2rem;
+}
+
+.porfolio-detalles b{
+    color: var(--first-color);
+    font-size: 1.2rem;
+}
+
+.porfolio-detalles small{
+    
+    font-size: 1.2rem;
+}
+
+
+.service-card{
+    margin: 1.6rem auto;
+    padding: 1.6rem ;
+    text-align: center;
+}
+
+.service-card svg{
+    fill: var(--first-color);
+    margin-bottom: 1.6rem;
+   
+}
+
+.service-card h3{
+    color: var(--title-color);
+    margin-bottom: 1.6rem;
+   
+}
+
+.social-media a{
+    padding:0 .8rem ;
+    text-decoration: none;
+}
+
+.social-media svg{
+    width: 2.6rem;
+    height: 2.6rem;
+}
+
+@media screen and (min-width : 768px) {
+
+    
+
+    .contact-cards{
+        display: grid;
+        grid-template-columns: repeat(2, 48%);
+        justify-content: space-between;
+    }
+
+    .hero-image-title{
+        font-size: 7.5vw;
+    }
+
+    .portfolio > div{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);  
+        justify-content: center;
+        align-content: center;
+    }
+
+
+    .portfolio h2{
+       grid-column: span 3;
+    }
+
+    .porfolio-modal{
+        flex-direction: row;
+        max-width: 800px;
+    }
+
+    .porfolio-modal img{
+        max-width: 360px;
+        max-height: 360px;
+    }
+
+    .porfolio-info{
+        margin-left: 1.6rem;
+        align-self: center;
+    }
+   
+    .service > .container{
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    .service .section-title{
+        grid-column: span 2;
+    }
+
+}
+
+@media screen and (min-width : 1024px) {
+
+    .about{
+        display: grid;
+        grid-template-columns: repeat(3 , 30%);
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    .contact-cards{
+        grid-template-columns: repeat(4, 24%);
+    }
+
+    .footer{ 
+        margin-bottom:0;
+    }
+
+    .header{
+        position: fixed;
+        top: 0;
+        padding: 0.8rem;
+        height: calc(var(--herder-heigth) - 0.8rem);
+    }
+
+    .portfolio > div{
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto, 30%);
+        align-content: center;
+    }
+
+    .portfolio h2{
+       grid-column: span 3;
+    }
+
+
+    .service .section-title{
+        grid-column: span 3;
+    }
+
+    .service > .container{
+        grid-template-columns: repeat(3, 30%);
+        
+    }
+}
