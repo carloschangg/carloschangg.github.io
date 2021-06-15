@@ -371,6 +371,12 @@ progress::-moz-progress-bar{
 /*  ============================
             Utilitis
 ================================*/
+
+.animation{
+    opacity: 0.4;
+    transform: translateX(-100%);
+}
+
 .bg-gray-light{
     background-color: var(--gray-light-color);
 }
@@ -449,6 +455,9 @@ progress::-moz-progress-bar{
 /*  ============================
             Siti Styles
 ================================*/
+.about{
+    transition: all 1s ease;
+}
 .about > article{
     margin-bottom: 3rem;
 }
@@ -458,6 +467,7 @@ progress::-moz-progress-bar{
 }
 .contact{
     margin-bottom: 2rem ;
+    transition: all 1s ease;
 }
 .contact-card{
     margin: 1.6rem auto;
@@ -507,6 +517,7 @@ progress::-moz-progress-bar{
     align-items: center;
 }
 
+
 .logo a{
     color: var(--first-color);
     font-weight: bold;
@@ -514,6 +525,9 @@ progress::-moz-progress-bar{
     text-decoration: none;
 }
 
+.portfolio{
+    transition: all 1s ease;
+}
 .porfolio-card{
     position: relative;
     width: 100%;
@@ -592,7 +606,9 @@ progress::-moz-progress-bar{
     font-size: 1.2rem;
 }
 
-
+.service{
+    transition: all 1s ease;
+}
 .service-card{
     margin: 1.6rem auto;
     padding: 1.6rem ;
