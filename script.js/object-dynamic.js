@@ -2,7 +2,7 @@ const d = document,
       w = window;
 
 
-export default function objectDynamic (home,aboul,service,porfolio,contact){
+export default function objectDynamic (){
 
      const $arrHtml     = d.querySelectorAll(".animation")
      console.log($arrHtml );
