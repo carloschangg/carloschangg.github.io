@@ -538,7 +538,8 @@ progress::-moz-progress-bar{
 .porfolio-card img{
    width: 100%;
    height: 100%;
-   object-fit: cover;
+   height: 350px;
+  
 }
 
 .porfolio-card-info{
@@ -554,6 +555,9 @@ progress::-moz-progress-bar{
     transition: all .5s ease;
     opacity: 0;
     pointer-events: none;
+}
+.porfolio-card-info p i{
+    font-weight: bold;
 }
 
 .porfolio-card-info > div{
@@ -590,6 +594,10 @@ progress::-moz-progress-bar{
     color: var(--title-color);
 }
 
+.porfolio-info i {
+    font-weight: bold;
+}
+
 .porfolio-detalles{
     display: grid;
     grid-template-columns:40% 60%;
@@ -613,6 +621,9 @@ progress::-moz-progress-bar{
     margin: 1.6rem auto;
     padding: 1.6rem ;
     text-align: center;
+}
+.service-card i{
+    font-weight: bold;
 }
 
 .service-card svg{

@@ -9,7 +9,7 @@ export default function objectDynamic (){
 
 
     d.addEventListener("scroll", e => {
-     let altura = innerHeight / 1.5;
+     let altura = innerHeight / 1.3;
      for(let i = 0; i< $arrHtml.length; i++){
           let distancia = $arrHtml[i].getBoundingClientRect().top;
           
