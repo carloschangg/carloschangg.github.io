@@ -1,6 +1,9 @@
+import btnScrollTop from "./btn-scroll-top.js";
 import formContact from "./form.js";
 import { menuMobile } from "./menu.js";
+import nav from "./nav.js";
 import objectDynamic from "./object-dynamic.js";
+
 
 (() => {
     
@@ -8,6 +11,9 @@ import objectDynamic from "./object-dynamic.js";
         menuMobile(".menu-btn", ".menu", ".menu a")
         formContact(".contact-form", ".contact-form-loader", ".contact-form-response")
         objectDynamic()
+        nav()
+        btnScrollTop()
+        
     })
     
 })();
